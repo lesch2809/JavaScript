@@ -1,11 +1,23 @@
 <html>
+
 <head>
     <title>Konsole</title>
     <script>
-        var meldung = "Hallo Konsole!";
-        console.log(meldung);
-    </script>
+    if (typeof addieren === 'function') {
+        var summe = addieren(5, 3);
+        document.write(summe);
+    }
+    else { 
+        document.write("Funktion existiert nicht!");
+    }
+    
+    function addieren(a, b) {
+        return a + b;
+    }   
+</script>
 </head>
+
 <body>
 </body>
+
 </html>
