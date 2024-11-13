@@ -1,23 +1,25 @@
 <html>
-
 <head>
-    <title>Konsole</title>
+    <title>Event-Bubbling</title>
     <script>
-    if (typeof addieren === 'function') {
-        var summe = addieren(5, 3);
-        document.write(summe);
-    }
-    else { 
-        document.write("Funktion existiert nicht!");
-    }
-    
-    function addieren(a, b) {
-        return a + b;
-    }   
-</script>
+        function initialize() {
+            document.getElementById("myBtn").addEventListener("click", handleClick);
+            document.getElementById("myDiv").addEventListener("click", handleClick);
+            window.addEventListener("click", handleClick);
+        }
+        function handleClick(e) {
+            console.log("currentTarget: " + e.currentTarget);
+
+            console.log("target: " + e.target);
+            e.stopPropagation()
+        }
+        window.addEventListener("load", initialize);
+    </script>
 </head>
 
 <body>
+    <div id="myDiv">
+        <button id="myBtn">Click me</button>
+    </div>
 </body>
-
 </html>
