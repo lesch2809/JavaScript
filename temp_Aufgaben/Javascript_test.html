@@ -1,15 +1,22 @@
 <html>
 <head>
-   <title>DOM modifizieren</title>
-</head>
-<body>    
-   <div id="main">
-      <p>Lorem</p>
+   <meta charset="UTF-8">
+   <title>Witze</title>
+</head>  
+<body>
+   <div>
+      <button id="btn">Zufallswitz holen</button>
+      <p id="witz"></p>
    </div>
    <script>
-      var p = document.createElement("p");
-      p.innerHTML = "<strong>Ipsum</strong>";
-      document.getElementById("main").appendChild(p);
+      window.onload = function() {  
+         document.getElementById("btn").addEventListener("click", holeWitz);
+      }
+      async function holeWitz() {
+         var response = await fetch("https://witzapi.de/api/joke/", { "method": "GET" });
+         var jsonData = await response.json();
+         document.getElementById("witz").innerText = jsonData[0] .text;   
+      }
    </script>
 </body>
 </html>
