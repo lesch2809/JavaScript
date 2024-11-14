@@ -1,25 +1,15 @@
 <html>
 <head>
-    <title>Event-Bubbling</title>
-    <script>
-        function initialize() {
-            document.getElementById("myBtn").addEventListener("click", handleClick);
-            document.getElementById("myDiv").addEventListener("click", handleClick);
-            window.addEventListener("click", handleClick);
-        }
-        function handleClick(e) {
-            console.log("currentTarget: " + e.currentTarget);
-
-            console.log("target: " + e.target);
-            e.stopPropagation()
-        }
-        window.addEventListener("load", initialize);
-    </script>
+   <title>DOM modifizieren</title>
 </head>
-
-<body>
-    <div id="myDiv">
-        <button id="myBtn">Click me</button>
-    </div>
+<body>    
+   <div id="main">
+      <p>Lorem</p>
+   </div>
+   <script>
+      var p = document.createElement("p");
+      p.innerHTML = "<strong>Ipsum</strong>";
+      document.getElementById("main").appendChild(p);
+   </script>
 </body>
 </html>

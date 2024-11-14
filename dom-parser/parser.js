@@ -1,31 +1,24 @@
-
-function parseNode(aktuellTag) {
-
+function parseNode(startNode) {
     var result = "";
-    var element = aktuellTag.childNodes;
-
-    for  (var child in element){
-        console.log(child)
-        travelThroughNode(aktuellTag)
+    var elements = startNode.childNodes;
+    
+   
+    for (var child of elements) {
+        travelThroughNode(child);
     }
-        
-    
-    
+
     return "<table><tr><th>nodeType</th><th>nodeName</th><th>nodeValue</th><th>textContent</th></tr>" + result + "</table>";
-
-    function travelThroughNode(aktuellTag){
-            result += "<tr>" +
-            "<td>" + aktuellTag.nodeType + "</td>" + 
-            "<td>" + aktuellTag.nodeName + "</td>" + 
-            "<td>" + aktuellTag.nodeValue + "</td>" +
-            "<td>" + aktuellTag.textContent + "</td>" +
-            "</tr>" ;
-            if (aktuellTag.childNode){
-                travelThroughNode(aktuellTag[i])
+    function travelThroughNode(node) {
+        result += "<tr>"
+        + "<td>" + node.nodeType + "</td>"
+        + "<td>" + node.nodeName + "</td>"
+        + "<td>" + node.nodeValue + "</td>"
+        + "<td>" + node.textContent + "</td>"
+        + "</tr>";
+        if (node.childNodes) {
+            for (var child of node.childNodes) {
+                travelThroughNode(child);
             }
+        }
     }
-    
-    
-    
 }
-
