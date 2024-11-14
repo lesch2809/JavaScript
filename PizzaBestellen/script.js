@@ -9,6 +9,10 @@ function add() {
     var ingredients = document.getElementById("ingredients");
     
     if (ingredients.selectedIndex > -1 ) {
+        var idx = ingredients.selectedIndex
+        var ingredient = ingredients.getElementsByTagName("option")[idx]
+        ingredient.remove()
+        
         //todo: ausgewählte Zutat von der linken in die rechte Listbox verschieben 
     }
 }
