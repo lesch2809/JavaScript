@@ -1,5 +1,16 @@
+
 button{
-    
-    width: 100px;
-    height: 100px;
+    color: rgb(0, 0, 0);
+    width: 33%;
+    height: 32vh;
+    background-color: rgb(190, 190, 190);
+    border: 100px;
+    border-color: blue;
+    font-size: 60px;
+}
+button:hover{
+    background-color: rgb(92, 92, 92);
+}
+p{
+    font-size: 60px;
 }
