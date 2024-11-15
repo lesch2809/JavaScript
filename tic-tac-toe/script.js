@@ -1,6 +1,8 @@
 var buttons = document.getElementsByTagName("button");
 var player = 1
 var i
+var Xwon = false;
+var Owon = false;
 var currentGameFieldO = []
 var currentGameFieldX = []
 var winningCombination = [
@@ -48,21 +50,27 @@ function checkifwon() {
     } alert(currentGameFieldO)
 
     for (var i = 0; i < winningCombination.length; i++) {
-        if (buttons[winningCombination[i][0]] == winningCombination[i][1] in currentGameFieldX && winningCombination[i][2] in currentGameFieldX) {
-            return true
-        }else{
-            return false
+        if ( currentGameFieldX.includes(winningCombination[i][0])
+            && currentGameFieldX.includes(winningCombination[i][1])
+            && currentGameFieldX.includes(winningCombination[i][2])) {
+            Xwon = true;
         }
     }
     for (var i = 0; i < winningCombination.length; i++) {
-        if (winningCombination[i][0] in currentGameFieldO && winningCombination[i][1] in currentGameFieldO && winningCombination[i][2] in currentGameFieldO) {
-            return true
-        }else{
-            return false
+        if (currentGameFieldO.includes(winningCombination[i][0]) 
+            && currentGameFieldO.includes(winningCombination[i][1])
+            && currentGameFieldO.includes(winningCombination[i][2])) {
+            Owon = true;
         }
     }
     
-    alert(currentGameFieldO)
+    if (Xwon === true){
+        alert("Xwon");
+    }
+    if (Owon === true){
+        alert("Owon");
+    }
+    
 }
 
 
@@ -70,12 +78,7 @@ for (i = 0; i < 9; i++) {
     console.log(i);
     buttons[i].addEventListener("click", place);
 
-    /*() => {
-        button[i].innerHTML = "B";
-
-    }
-    );
-    */
+    
 }
 
 
