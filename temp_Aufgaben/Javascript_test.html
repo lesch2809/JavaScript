@@ -1,22 +1,21 @@
 <html>
 <head>
-   <meta charset="UTF-8">
-   <title>Witze</title>
-</head>  
-<body>
-   <div>
-      <button id="btn">Zufallswitz holen</button>
-      <p id="witz"></p>
-   </div>
+   <title>Event-Target</title>
    <script>
-      window.onload = function() {  
-         document.getElementById("btn").addEventListener("click", holeWitz);
+      function initialize() {
+         var btn = document.getElementById("myButton"); 
+         btn.addEventListener("click", handle);
       }
-      async function holeWitz() {
-         var response = await fetch("https://witzapi.de/api/joke/", { "method": "GET" });
-         var jsonData = await response.json();
-         document.getElementById("witz").innerText = jsonData[0] .text;   
+      function handle(e) {
+         console.log("Event wurde ausgelöst von: " + e.target);
+         e.target.innerHTML = "Klick mich nochmal";
       }
+      window.addEventListener("load", initialize);
    </script>
+</head>
+<body>
+   <button id="myButton">
+      Klick mich
+   </button>
 </body>
 </html>
